@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #F9F7F4;
+    --bg-secondary: #F0EDE8;
+    --bg-card: #FFFFFF;
+    --text-primary: #1A1A2E;
+    --text-secondary: #4A4A5E;
+    --text-muted: #8A8A9E;
+    --border-color: #E8E5E0;
+    --primary: #1A4A42;
+    --primary-light: #2A6A5E;
+    --accent: #C8794A;
+    --accent-light: #E8C8B0;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #F9F7F4;
+  color: #1A1A2E;
+  font-family: var(--font-plex-sans);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Subtle grid pattern */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(26, 74, 66, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 74, 66, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+::selection {
+  background: #C8794A;
+  color: #FFFFFF;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F0EDE8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C8794A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1A4A42;
+}
+
+/* Utility */
+.container-modern {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #8A8A9E;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: var(--font-fraunces);
+  font-size: 32px;
+  font-weight: 600;
+  color: #1A1A2E;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
